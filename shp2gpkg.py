@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Grovel directories containing ESRI ShapeFile to create GeoPackage layers"""
 
 from os import walk
@@ -30,20 +30,19 @@ def list_files(filepath, match):
         files = files + tuple(f'{d}/{f}' for f in filenames if match in f)
     return files
 
-PATTERNS = [re.compile(i, re.IGNORECASE) for i in ['shapefile', 'shape$', 'file$']]
+PATTERNS = [re.compile(i, re.IGNORECASE) for i in ['^shapefile', 'shape$', 'file$']]
 
 def get_layername(filepath):
     """return layer name from shape-filepath"""
     r = filepath.split('/')[-1]
     r = r.replace('.shp', '')
     for p in PATTERNS:
-        r = p.split(r)[0]
+        r = [i for i in p.split(r) if i != ''][0]
     return r
 
 FILES = [f for f in list_files(FILEPATH, 'shp') if f[-4:] == '.shp']
 
-
 for f in FILES:
-    gf = gp.read_file(f)
+    gf = gp.read_file(f, engine='pyogrio')
     layername = get_layername(f)
-    gf.to_crs(CRS).to_file(OUTPATH, driver='GPKG', layer=layername)
+    gf.to_crs(CRS).to_file(OUTPATH, driver='GPKG', layer=layername, engine='pyogrio')
