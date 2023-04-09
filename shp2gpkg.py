@@ -58,8 +58,7 @@ FILES = [f for f in list_files(FILEPATH, "shp") if f[-4:] == ".shp"]
 
 
 for f in FILES:
-    print(f)
     gf = read_dataframe(f)
     layername = get_layername(f)
-    print(f'layer: {layername}')
+    print(f"layer: {layername}")
     write_dataframe(gf.to_crs(CRS), OUTPATH, layer=layername)
