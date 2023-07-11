@@ -18,4 +18,8 @@ if [ ! -s organisational-boundaries.gpkg ]; then
     echo Create organisational boundaries GeoPKG
     python3 shp2gpkg.py organisational-boundaries.gpkg organisational-boundaries/
 fi
+if [ ! -s esta.gpkg ]; then
+    echo Create ESTA GeoPKG
+    python3 shp2gpkg.py esta.gpkg esta/
+fi
 

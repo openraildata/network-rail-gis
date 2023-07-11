@@ -32,3 +32,10 @@ This contains five sets of data, extracted from the Infrastructure Network Model
 * *Vector TME* - the extent of each Track Maintenance Engineer
 * *Vector TSM* - the extent of each Track Section Manager
 
+ESTA
+----
+
+This contains one set of data, extracted from the Infrastructure Network Model (INM):
+
+* *ESTA* - Electricity Supply Tariff Areas
+
