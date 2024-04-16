@@ -1,13 +1,14 @@
 #!/usr/bin/env python
+# coding: utf-8
 """Grovel directories containing ESRI ShapeFile to create GeoPackage layers"""
 
-from os import walk
+import argparse
 import os
 import re
-import argparse
-import pandas as pd
+from os import walk
+from pathlib import Path
 
-os.environ["USE_PYGEOS"] = "0"
+import pandas as pd
 from pyogrio import read_dataframe, write_dataframe
 
 pd.set_option("display.max_columns", None)
@@ -47,11 +48,8 @@ PATTERNS = [re.compile(i, re.IGNORECASE) for i in ["shapefile", "shape$", "file$
 
 def get_layername(filepath):
     """return layer name from shape-filepath"""
-    r = filepath.split("/")[-1]
-    r = r.replace(".shp", "")
-    for p in PATTERNS:
-        r = [i for i in p.split(r) if i][0]
-    return r
+    r = Path(filepath)
+    return r.parent.stem
 
 
 FILES = [f for f in list_files(FILEPATH, "shp") if f[-4:] == ".shp"]
