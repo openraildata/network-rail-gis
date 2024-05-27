@@ -39,3 +39,6 @@ This contains one set of data, extracted from the Infrastructure Network Model (
 
 * *ESTA* - Electricity Supply Tariff Areas
 
+
+** Note
+To address inconsistent file naming between data releases, the layer name is now derived from the parent directory rather than shapefile name. 
