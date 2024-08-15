@@ -1,6 +1,8 @@
 Network Rail Geospatial Data
 ============================
 
+*NOTE:* The data contained in this repository is now out-of-date.  The most up-to-date data is available via the [Rail Data Marketplace](https://raildata.org.uk/dashboard/dataProduct/P-d6c0c7ee-6743-4999-9b9e-d2dd39585bdb/overview).
+
 The datasets contained within this repository have [published](https://www.whatdotheyknow.com/request/geospatial_data) via the Environmental Information Regulations (EIR) by Network Rail.  They have been released under the Open Government Licence:
 
 > &quot;You are encouraged to use and re-use the information made available in this response freely and flexibly, with only a few conditions. These are set out in the [Open Government Licence](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) for public sector information. For further information please visit our website.&quot;
